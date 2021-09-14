@@ -19,7 +19,7 @@ function Cocktail({cocktail}){
                 <Card.Content>
                     <Card.Header>{cocktail.name}</Card.Header>
                     <Card.Description>{cocktail.strCategory}</Card.Description>
-                    <Card.Description>{cocktail.strAlcoholic}</Card.Description>
+                    <Card.Description>{cocktail.strDrinkAlcoholic}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
                 <Modal closeIcon
