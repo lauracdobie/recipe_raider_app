@@ -12,8 +12,8 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Meal {
-    private String strMeal;
-    private String strMealThumb;
+    private String name;
+    private String thumbURL;
     private String idMeal;
     private String strArea;
     private String strInstructions;

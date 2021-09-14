@@ -12,12 +12,12 @@ function Meal({meal}){
         <>
         <Card color='pink' className="meal">
                 <Image
-                    src={meal.strMealThumb}
+                    src={meal.thumbURL}
                     wrapped
                     ui={false}
                 />
                 <Card.Content>
-                    <Card.Header>{meal.strMeal}</Card.Header>
+                    <Card.Header>{meal.name}</Card.Header>
                     <Card.Description>{meal.strArea}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>

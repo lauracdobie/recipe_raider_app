@@ -1,5 +1,5 @@
 import {Card, Icon, Image, Popup, Button, Modal} from 'semantic-ui-react';
-import CocktailRecipe from './CocktailRecipe';
+import Recipe from './Recipe';
 import {useState} from 'react';
 
 // Meal component which renders a meal card component from semantic UI
@@ -12,12 +12,12 @@ function Cocktail({cocktail}){
         <>
         <Card color='pink' className="meal">
                 <Image
-                    src={cocktail.strDrinkThumb}
+                    src={cocktail.thumbURL}
                     wrapped
                     ui={false}
                 />
                 <Card.Content>
-                    <Card.Header>{cocktail.strDrink}</Card.Header>
+                    <Card.Header>{cocktail.name}</Card.Header>
                     <Card.Description>{cocktail.strCategory}</Card.Description>
                     <Card.Description>{cocktail.strAlcoholic}</Card.Description>
                 </Card.Content>
@@ -32,7 +32,7 @@ function Cocktail({cocktail}){
                     </a>}
                 >
                 <Modal.Content>
-                    <CocktailRecipe cocktailRecipe={cocktail}/>
+                    <Recipe recipe={cocktail}/>
                 </Modal.Content>
                 </Modal>
                 </Card.Content>

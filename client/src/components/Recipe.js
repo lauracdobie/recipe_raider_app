@@ -29,7 +29,7 @@ function Recipe({recipe}) {
         
       <>
       <Container text>
-        <Header as='h2' textAlign="center">{recipe.strMeal}  </Header>
+        <Header as='h2' textAlign="center">{recipe.name}  </Header>
         <Grid>       
           <Grid.Column width={8}>
             <h3>Ingredients</h3>
@@ -38,7 +38,7 @@ function Recipe({recipe}) {
           </List>
           </Grid.Column>
           <Grid.Column width={8}>
-            <Image src={recipe.strMealThumb}  size="large" rounded/>
+            <Image src={recipe.thumbURL}  size="large" rounded/>
           </Grid.Column>
         </Grid>
             <h3>Method</h3>

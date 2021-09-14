@@ -13,8 +13,8 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class Cocktail {
 
-    private String strDrink;
-    private String strDrinkThumb;
+    private String name;
+    private String thumbURL;
     private String idDrink;
     private String strInstructions;
     private String strCategory;
