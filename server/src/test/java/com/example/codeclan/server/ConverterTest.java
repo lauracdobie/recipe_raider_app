@@ -16,8 +16,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class ConverterTest {
@@ -28,15 +29,15 @@ public class ConverterTest {
     public void canConvertJsonNodeToMealPayload() throws IOException {
         JsonNode meal = mealAPI.getRecipe("52772");
         Converter converter = new Converter();
-        MealRecipePayload result = converter.convertMealJsonNodeToRecipePayload(meal);
-        assertTrue(result instanceof MealRecipePayload);
+        Object result = converter.convertMealJsonNodeToRecipePayload(meal);
+        assertThat(result, instanceOf(MealRecipePayload.class));
     }
 
     @Test public void canConvertJsonNodeToCocktailPayload() throws IOException {
         JsonNode cocktail = mealAPI.getCocktail("11007");
         Converter converter = new Converter();
-        CocktailRecipePayload result = converter.convertJsonNodeToCocktailRecipePayload(cocktail);
-        assertTrue(result instanceof CocktailRecipePayload);
+        Object result = converter.convertJsonNodeToCocktailRecipePayload(cocktail);
+        assertThat(result, instanceOf(CocktailRecipePayload.class));
     }
 
     @Test
@@ -44,7 +45,7 @@ public class ConverterTest {
         List<MealRecipePayload> mealRecipePayloads = getMealRecipePayloadsToTest("chicken, onion");
         Converter converter = new Converter();
         List<Meal> meals = converter.convertMealRecipePayloadsToMeals(mealRecipePayloads);
-        assertTrue(meals.get(0) instanceof Meal);
+        assertThat(meals.get(0), instanceOf(Meal.class));
         assertEquals(3, meals.size());
     }
 
@@ -52,8 +53,8 @@ public class ConverterTest {
     public void canConvertIndividualMealPayloadtoMeal() throws IOException, NoSuchFieldException, IllegalAccessException {
         Converter converter = new Converter();
         MealRecipePayload testRecipe = getIndividualMealRecipePayloadToTest("chicken, onion");
-        Meal result = converter.convertIndividualMealRecipePayloadToMeal(testRecipe);
-        assertTrue(result instanceof Meal);
+        Object result = converter.convertIndividualMealRecipePayloadToMeal(testRecipe);
+        assertThat(result, instanceOf(Meal.class));
     }
 
     @Test
@@ -61,7 +62,7 @@ public class ConverterTest {
         List<CocktailRecipePayload> cocktailRecipePayloads = getCocktailRecipePayloadsToTest("gin, vodka");
         Converter converter = new Converter();
         List<Cocktail> cocktails = converter.convertCocktailRecipePayloadsToCocktails(cocktailRecipePayloads);
-        assertTrue(cocktails.get(0) instanceof Cocktail);
+        assertThat(cocktails.get(0), instanceOf(Cocktail.class));
     }
 
     public List<MealRecipePayload> getMealRecipePayloadsToTest(String ingredients) throws IOException {
